@@ -1,14 +1,26 @@
-Welcome to your Appcelerator Titanium Mobile Project
+This demonstrates the problem I am having with ti.worker module. The app causes this error when run:
 
-This is a single window application with a single view - a mostly blank canvas. Requires Titanium Mobile SDK 1.8.0+
-
-----------------------------------
-Stuff our legal folk make us say:
-
-Appcelerator, Appcelerator Titanium and associated marks and logos are 
-trademarks of Appcelerator, Inc. 
-
-Titanium is Copyright (c) 2009-2012 by Appcelerator, Inc. All Rights Reserved.
-
-Titanium is licensed under the Apache Public License (Version 2). Please
-see the LICENSE file for the full license.
+The application has crashed with an uncaught exception 'NSInvalidArgumentException'.
+[DEBUG] Reason:
+[DEBUG] *** -[NSURL initFileURLWithPath:]: nil string parameter
+[DEBUG] Stack trace:
+[DEBUG] 0   CoreFoundation                      0x03475012 __exceptionPreprocess + 178
+[DEBUG] 1   libobjc.A.dylib                     0x03082e7e objc_exception_throw + 44
+[DEBUG] 2   CoreFoundation                      0x03474deb +[NSException raise:format:] + 139
+[DEBUG] 3   Foundation                          0x00cb0281 -[NSURL(NSURL) initFileURLWithPath:] + 94
+[DEBUG] 4   Foundation                          0x00cb020b +[NSURL(NSURL) fileURLWithPath:] + 67
+[DEBUG] 5   Swap-A-Doodle                       0x00046259 -[KrollBridge evalFileOnThread:context:] + 265
+[DEBUG] 6   libobjc.A.dylib                     0x03096705 -[NSObject performSelector:withObject:withObject:] + 77
+[DEBUG] 7   Swap-A-Doodle                       0x0004bbd1 -[KrollInvocation invoke:] + 145
+[DEBUG] 8   Swap-A-Doodle                       0x0004e108 -[KrollContext invokeOnThread:method:withObject:callback:selector:] + 248
+[DEBUG] 9   Swap-A-Doodle                       0x00046a9d -[KrollBridge evalFile:callback:selector:] + 125
+[DEBUG] 10  Swap-A-Doodle                       0x000479b1 -[KrollBridge didStartNewContext:] + 2657
+[DEBUG] 11  libobjc.A.dylib                     0x030966b0 -[NSObject performSelector:withObject:] + 70
+[DEBUG] 12  Swap-A-Doodle                       0x0004f0ef -[KrollContext main] + 3199
+[DEBUG] 13  Foundation                          0x00ce40d5 -[NSThread main] + 76
+[DEBUG] 14  Foundation                          0x00ce4034 __NSThread__main__ + 1304
+[DEBUG] 15  libsystem_c.dylib                   0x977a1ed9 _pthread_start + 335
+[DEBUG] 16  libsystem_c.dylib                   0x977a56de thread_start + 34
+[DEBUG] 2013-01-30 19:10:35.372 Swap-A-Doodle[24095:1da0b] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '*** -[NSURL initFileURLWithPath:]: nil string parameter'
+[DEBUG] *** First throw call stack:
+[DEBUG] (0x3475012 0x3082e7e 0x3474deb 0xcb0281 0xcb020b 0x46259 0x3096705 0x4bbd1 0x4e108 0x46a9d 0x479b1 0x30966b0 0x4f0ef 0xce40d5 0xce4034 0x977a1ed9 0x977a56de)
